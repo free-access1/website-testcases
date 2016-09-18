@@ -1,0 +1,167 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name ="All Tests" verbose="1">
+    <parameter name = "browser" value="ff"/>
+
+    <test name="Footer Navigation">
+        <classes>
+            <class name="com.bizzclick.website.ui.Footer.FooterNavigationTest"/>
+        </classes>
+    </test>
+
+    <test name="Forgot Password - wrong emails">
+        <parameter name = "mailboxAccount"  value="forgot-password@mail.ua"/>
+        <parameter name = "mailboxPassword" value="1qa@WS"/>
+        <classes>
+            <class name="com.bizzclick.website.ui.ForgotPassword.WrongEmails"/>
+        </classes>
+    </test>
+
+    <test name="Forgot Password - getting email with token to change password">
+        <parameter name = "mailboxAccount"  value="forgot-password@mail.ua"/>
+        <parameter name = "mailboxPassword" value="1qa@WS"/>
+        <classes>
+            <class name="com.bizzclick.website.ui.ForgotPassword.GettingEmailWithToken"/>
+        </classes>
+    </test>
+
+    <test name="Forgot Password - opening Reset Password page">
+        <parameter name = "mailboxAccount"  value="forgot-password@mail.ua"/>
+        <parameter name = "mailboxPassword" value="1qa@WS"/>
+        <classes>
+            <class name="com.bizzclick.website.ui.ForgotPassword.OpeningResetPasswordPage"/>
+        </classes>
+    </test>
+    <test name="LoggedHeader - navigation">
+        <parameter name = "mailboxAccount"  value="in-log@mail.ua"/>
+        <parameter name = "mailboxPassword" value="1qa@WS"/>
+        <classes>
+            <class name="com.bizzclick.website.ui.Header.LoggedHeaderNavigationTest"/>
+        </classes>
+    </test>
+
+    <test name="NonLoggedHeader - navigation">
+        <classes>
+            <class name="com.bizzclick.website.ui.Header.NonLoggedHeaderNavigationTest"/>
+        </classes>
+    </test>
+
+    <test name="Correct Login">
+        <parameter name = "mailboxAccount"  value="in-log@mail.ua"/>
+        <parameter name = "mailboxPassword" value="1qa@WS"/>
+        <classes>
+            <class name="com.bizzclick.website.ui.Login.CorrectLoginTest"/>
+        </classes>
+    </test>
+    <test name="Incorrect Login - client side checking">
+        <classes>
+            <class name="com.bizzclick.website.ui.Login.IncorrectLoginTestClientSide"/>
+        </classes>
+    </test>
+    <test name="Incorrect Login - server side checking">
+        <parameter name = "mailboxAccount"  value="in-log@mail.ua"/>
+        <parameter name = "mailboxPassword" value="1qa@WS"/>
+        <classes>
+            <class name="com.bizzclick.website.ui.Login.IncorrectLoginTestServerSide"/>
+        </classes>
+    </test>
+
+    <test name="Login Navigation">
+        <classes>
+            <class name="com.bizzclick.website.ui.Login.LoginNavigationTest"/>
+        </classes>
+    </test>
+
+    <test name="Login without signup confirmation">
+        <parameter name = "mailboxAccount"  value="un-confirmed-account@mail.ua"/>
+        <parameter name = "mailboxPassword" value="1qa@WS"/>
+        <classes>
+            <class name="com.bizzclick.website.ui.Login.LoginWithoutSignupConfirmationTest"/>
+        </classes>
+    </test>
+
+    <test name="Set New Password page - Correct password">
+        <parameter name = "mailboxAccount"  value="forgot-password@mail.ua"/>
+        <parameter name = "mailboxPassword" value="1qa@WS"/>
+        <classes>
+            <class name="com.bizzclick.website.ui.SetNewPassword.CorrectPasswords"/>
+        </classes>
+    </test>
+
+    <test name="Set New Password page - Incorrect password">
+        <parameter name = "mailboxAccount"  value="forgot-password@mail.ua"/>
+        <parameter name = "mailboxPassword" value="1qa@WS"/>
+        <classes>
+            <class name="com.bizzclick.website.ui.SetNewPassword.IncorrectPassword"/>
+        </classes>
+    </test>
+    <test name="Set New Password page - Password mismatch">
+        <parameter name = "mailboxAccount"  value="forgot-password@mail.ua"/>
+        <parameter name = "mailboxPassword" value="1qa@WS"/>
+        <classes>
+            <class name="com.bizzclick.website.ui.SetNewPassword.PasswordMismatch"/>
+        </classes>
+    </test>
+
+    <test name="Correct SignUp">
+        <parameter name = "mailboxAccount"  value="confirmed.account@mail.ru"/>
+        <parameter name = "mailboxPassword" value="1qa@WS"/>
+        <classes>
+            <class name="com.bizzclick.website.ui.Signup.CorrectSignupTest"/>
+        </classes>
+    </test>
+    <test name="SignUp with incorrect values - client and server side check">
+        <classes>
+            <class name="com.bizzclick.website.ui.Signup.SignupWithIncorrectValuesTest"/>
+        </classes>
+    </test>
+    <test name="SignUp without confirmation">
+        <parameter name = "mailboxAccount"  value="un-confirmed-account@mail.ua"/>
+        <parameter name = "mailboxPassword" value="1qa@WS"/>
+        <classes>
+            <class name="com.bizzclick.website.ui.Signup.SignupWithoutConfirmationTest"/>
+        </classes>
+    </test>
+    <test name="Using a incorrect token after user removal">
+        <parameter name = "mailboxAccount"  value="un-confirmed-account@mail.ua"/>
+        <parameter name = "mailboxPassword" value="1qa@WS"/>
+        <classes>
+            <class name="com.bizzclick.website.ui.Signup.UsingIncorrectTokenAfterUserRemovalTest"/>
+        </classes>
+    </test>
+    <test name="Using incorrect token before user removal">
+        <parameter name = "mailboxAccount"  value="un-confirmed-account@mail.ua"/>
+        <parameter name = "mailboxPassword" value="1qa@WS"/>
+        <classes>
+            <class name="com.bizzclick.website.ui.Signup.UsingIncorrectTokenBeforeUserRemovalTest"/>
+        </classes>
+    </test>
+
+    <test name="Applications - empty list">
+        <parameter name = "mailboxAccount"  value="applications-test@mail.ua"/>
+        <classes>
+            <class name="com.bizzclick.website.ui.Applications.ApplicationsListEmpty.NavigationOnEmptyApplicationsListPageTest"/>
+        </classes>
+    </test>
+
+    <test name="Add New Application correctly">
+        <parameter name = "mailboxAccount"  value="applications-test@mail.ua"/>
+        <classes>
+            <class name="com.bizzclick.website.ui.Applications.AddNewApplication.CorrectAddingNewApplicationTest"/>
+        </classes>
+    </test>
+
+    <test name="Navigation On 'Add New Application' Page">
+        <parameter name = "mailboxAccount"  value="applications-test@mail.ua"/>
+        <classes>
+            <class name="com.bizzclick.website.ui.Applications.AddNewApplication.NavigationOnAddNewApplicationPageTest"/>
+        </classes>
+    </test>
+<!--
+    <test name="Incorrect adding new application - check on client side">
+        <parameter name = "mailboxAccount"  value="applications-test@mail.ua"/>
+        <classes>
+            <class name="com.bizzclick.website.ui.Applications.AddNewApplication.IncorrectAddingNewApplicationTestClientSide"/>
+        </classes>
+    </test>
+-->
+</suite>
